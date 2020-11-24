@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { OverlayType, OverlayData } from '../../../store/states/ui/slices/overlay/types';
+import { OverlayContentProps } from './types';
 import EditTileForm from './EditTileForm/EditTileForm';
 import SettingsForm from './SettingsForm/SettingsForm';
 
-const OverlayContent: React.FC<{ type: OverlayType; data: OverlayData }> = ({ type, data }) => {
+const OverlayContent: React.FC<OverlayContentProps> = ({ type, data }) => {
   if (type === 'edit' && !data) {
     throw new Error('One of the props provided to OverlayContent Component is empty.');
   }

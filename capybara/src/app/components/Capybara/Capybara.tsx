@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cloneDeep } from 'lodash';
 import GridLayout, { ReactGridLayoutProps, ItemCallback } from 'react-grid-layout';
-import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
+import { ContextMenuTrigger } from 'react-contextmenu';
 
 import CapybaraTile from './CapybaraTile/CapybaraTile';
+import CapybaraContextMenu from '../ContextMenu/CapybaraContextMenu/CapybaraContextMenu';
 import { mouseMoveListener, preventDefault } from './helpers';
 import { useContainerDimensions } from './hooks';
 import { setLayout } from '../../../app/store/states/appState/slices/layout/layout';
@@ -21,7 +22,10 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
   const dispatch = useDispatch();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const dispatchUpdatedLayoutState = (RGLLayoutData: GridLayout.Layout[]) => {
+  // a safe deep copy of the current layout state
+  const layout: LayoutItem[] = cloneDeep(useSelector((state: State) => state.appState.layout));
+
+  const dispatchUpdatedLayoutStateOnDragStop = (RGLLayoutData: GridLayout.Layout[]) => {
     const newLayout = layout.map((item, index) => {
       const newItem = cloneDeep(item);
       newItem.data.grid = RGLLayoutData[index];
@@ -29,9 +33,6 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
     });
     dispatch(setLayout(newLayout));
   };
-
-  // a safe deep copy of the current layout state
-  const layout: LayoutItem[] = cloneDeep(useSelector((state: State) => state.appState.layout));
 
   const onDragStart: ItemCallback = (layout, oldItem, newItem, placeholder, evt, element) => {
     evt.target?.addEventListener('mousemove', mouseMoveListener);
@@ -44,7 +45,7 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
       evt.target?.removeEventListener('click', preventDefault);
     }, 0);
 
-    dispatchUpdatedLayoutState(RGLLayoutData);
+    dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
   };
 
   const onResizeStart: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
@@ -52,11 +53,11 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
   };
 
   const onResize: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
-    dispatchUpdatedLayoutState(RGLLayoutData);
+    dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
   };
 
   const onResizeStop: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
-    dispatchUpdatedLayoutState(RGLLayoutData);
+    dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
     element.parentElement!.style.zIndex = '0';
   };
 
@@ -87,10 +88,9 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
 
   return (
     <>
-      <ContextMenuTrigger id="same_unique_identifier">
+      <ContextMenuTrigger id="capybara-context" holdToDisplay={-1}>
         <div
           className="capybara"
-          id="capybara"
           ref={containerRef}
           style={isOverlayed ? { filter: 'blur(1.1px) brightness(70%)', transition: 'all 0.3s ease' } : undefined}
         >
@@ -100,8 +100,8 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
                 className="capybara__tile-container"
                 key={data.grid.i}
                 data-grid={data.grid}
-                // onClick={(evt) => evt.stopPropagation()}       // Is this needed yet?
-                onContextMenu={() => {
+                onContextMenu={(evt) => {
+                  evt.stopPropagation();
                   dispatch(setOverlay({ isActive: true, type: 'edit', data: { id: data.grid.i, type } }));
                 }}
               >
@@ -116,33 +116,7 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
           </GridLayout>
         </div>
       </ContextMenuTrigger>
-      <ContextMenu id="same_unique_identifier">
-        <MenuItem
-          data={{ foo: 'bar' }}
-          onClick={() => {
-            dispatch(setOverlay({ isActive: true, type: 'settings', data: null }));
-          }}
-        >
-          Settings
-        </MenuItem>
-        <MenuItem
-          data={{ foo: 'bar' }}
-          onClick={() => {
-            console.log(222);
-          }}
-        >
-          Add new bookmark
-        </MenuItem>
-        <MenuItem divider />
-        <MenuItem
-          data={{ foo: 'bar' }}
-          onClick={() => {
-            console.log(111);
-          }}
-        >
-          Add new folder
-        </MenuItem>
-      </ContextMenu>
+      <CapybaraContextMenu dispatch={dispatch} layout={layout} />
     </>
   );
 };

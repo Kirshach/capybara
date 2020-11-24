@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LayoutItem } from '../layout/types';
 import { getLayoutFromLocalStorage, findLayoutItemById } from './helpers';
-import { EditTileInputsData } from '../../../../../components/Overlay/OverlayContent/EditTileForm/types';
+import { EditTileInputsData } from '../../../../../Components/Overlay/OverlayContent/EditTileForm/types';
 import mock from '../../../../../../layout-mock';
 
 const initialState: LayoutItem[] = getLayoutFromLocalStorage() || mock;
@@ -18,9 +18,12 @@ export const LayoutStateSlice = createSlice({
       layoutItem.data.content = action.payload.content;
       layoutItem.data.styles = action.payload.styles;
     },
+    deleteLayoutItemById: (state, action: PayloadAction<string>) => {
+      state.splice(state.indexOf(findLayoutItemById(state, action.payload)), 1);
+    },
   },
 });
 
-export const { setLayout, setLayoutItemData } = LayoutStateSlice.actions;
+export const { setLayout, setLayoutItemData, deleteLayoutItemById } = LayoutStateSlice.actions;
 
 export default LayoutStateSlice.reducer;

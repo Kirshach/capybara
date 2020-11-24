@@ -18,6 +18,7 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
       style={{
         ...styles,
         padding: width === 1 && height === 1 ? '0.4em' : '',
+        borderColor: styles.color,
       }}
       className="capytile--link"
       href={to}
@@ -31,7 +32,7 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
         src={
           hostname
             ? `https://api.faviconkit.com/${hostname}/144`
-            : 'https://www.iconsdb.com/icons/preview/red/error-xxl.png'
+            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9NTvjzNrzPuw4Qqa7htI67VJ37jzP36pGew&usqp=CAU'
         }
         alt="favicon"
         style={{ width: width === 1 ? '100%' : '' }}

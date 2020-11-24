@@ -47,6 +47,13 @@
 
   width: 27px;
   margin: 0 0 0.3em 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .capytile--link__title {
@@ -63,6 +70,13 @@
   font-size: 1em;
 
   text-overflow: ellipsis;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .overlay-form__fieldset {

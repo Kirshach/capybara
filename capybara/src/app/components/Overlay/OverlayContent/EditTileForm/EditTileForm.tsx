@@ -6,7 +6,7 @@ import { State } from '../../../../store/states/types';
 import { EditData } from '../../../../store/states/ui/slices/overlay/types';
 import { getTileFormLayout } from './helpers';
 import { EditTileInputsData, EditStyleInputName, EditContentInputName } from './types';
-import { setLayoutItemData } from '../../../../store/states/appState/slices/layout/layout';
+import { setLayoutItemData, deleteLayoutItemById } from '../../../../store/states/appState/slices/layout/layout';
 import { unsetOverlay } from '../../../../store/states/ui/slices/overlay/overlay';
 import './EditTileForm.scss';
 
@@ -14,8 +14,9 @@ import './EditTileForm.scss';
 
 const EditTileForm: React.FC<EditData> = ({ id, type }) => {
   const dispatch = useDispatch();
-  const tileDataState = cloneDeep(
-    useSelector((state: State) => state.appState.layout.find((el) => el.data.grid.i === id)),
+
+  const [tileDataState] = useState(
+    cloneDeep(useSelector((state: State) => state.appState.layout.find((el) => el.data.grid.i === id))),
   );
 
   if (!tileDataState) {
@@ -113,9 +114,21 @@ const EditTileForm: React.FC<EditData> = ({ id, type }) => {
             </div>
           </div>
         </fieldset>
-        <button className="overlay__submit" type="submit">
-          Save
-        </button>
+        <div className="overlay-form__group">
+          <button className="overlay__submit" type="submit">
+            Save
+          </button>
+          <button
+            className="overlay__submit"
+            type="button"
+            onClick={() => {
+              dispatch(deleteLayoutItemById(id));
+              dispatch(unsetOverlay());
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </form>
   );
