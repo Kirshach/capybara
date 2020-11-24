@@ -1,0 +1,154 @@
+$fancy-overlay-font: 'Pacifico', cursive;
+
+.overlay-form {
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 40px;
+
+  align-items: center;
+
+  width: auto;
+  padding: 2em 3em;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 7px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 65px 25px rgba(0, 0, 0, 0.6);
+}
+
+.overlay-form__tile-preview {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
+
+.overlay-form__edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2.5em 3em;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 0 35px 15px rgba(0, 0, 0, 0.6), inset 0 0 65px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}
+
+.overlay-form__fieldset {
+  padding: 0;
+  margin: 0 0 2em;
+  border: none;
+}
+
+.overlay-form__fieldset:last-of-type {
+  margin-bottom: 1em;
+}
+
+.overlay-form__fieldset--grid-horizontal {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.overlay-form__fieldset--grid-horizontal .overlay-form__group {
+  justify-content: flex-start;
+}
+
+.overlay-form__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 0 0.8em;
+}
+
+.overlay-form__group:last-of-type {
+  margin: 0;
+}
+
+.overlay-form__label {
+  padding: 0;
+  margin: 0 2em 0;
+
+  font-size: 18px;
+  font-family: $fancy-overlay-font;
+  font-weight: 300;
+}
+
+.overlay-form__input {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+}
+
+.overlay-form__input--text {
+  width: 20em;
+  padding: 0.8em 1em;
+
+  font-size: 1.05em;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.26);
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
+  transition: all 0.05s ease-in-out;
+}
+
+.overlay-form__input--text:hover {
+  background-color: rgba(0, 0, 0, 0.36);
+}
+
+.overlay-form__input--text:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.39);
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.46);
+}
+
+.overlay-form__color-display {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.overlay-form__input--color {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  margin: 0;
+
+  opacity: 0;
+  cursor: pointer;
+}
+
+.overlay__submit {
+  display: block;
+
+  padding: 0.2em 0.7em;
+  border: none;
+  margin: -0.3em 0 -1em;
+
+  background-color: transparent;
+  color: white;
+
+  font-size: 1.5em;
+  font-family: $fancy-overlay-font;
+
+  cursor: pointer;
+
+  transform: translate(18px, -2px) scale(1);
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0);
+
+  transition: all 0.15s ease-in-out;
+}
+
+.overlay__submit:hover,
+.overlay__submit:focus {
+  outline: none;
+  transform: translate(18px, -2px) scale(1.08);
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.39);
+}
