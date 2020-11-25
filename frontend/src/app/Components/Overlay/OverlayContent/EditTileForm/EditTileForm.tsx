@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cloneDeep } from 'lodash';
 
@@ -8,7 +8,9 @@ import { getTileFormLayout } from './helpers';
 import { EditTileInputsData, EditStyleInputName, EditContentInputName } from './types';
 import { setLayoutItemData, deleteLayoutItemById } from '../../../../store/states/appState/slices/layout/layout';
 import { unsetOverlay } from '../../../../store/states/ui/slices/overlay/overlay';
+import CapybaraLink from '../../../Capybara/CapybaraTile/CapybaraLink/CapybaraLink';
 import './EditTileForm.scss';
+import { setTimeout } from 'timers';
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -60,9 +62,24 @@ const EditTileForm: React.FC<EditData> = ({ id, type }) => {
     dispatch(unsetOverlay());
   };
 
+  const [to, setTo] = useState(inputsData.content.url);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setTo(inputsData.content.url);
+    }, 1500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [inputsData.content.url]);
+
   return (
     <form className="overlay__overlay-form overlay-form" onSubmit={onSubmit} onClick={(evt) => evt.stopPropagation()}>
-      <div className="overlay-form__tile-preview"></div>
+      <div className="overlay-form__tile-preview">
+        <CapybaraLink dimensions={{ width: 2, height: 2, rowHeight: 130 }} styles={inputsData.styles} to={to}>
+          {inputsData.content.title}
+        </CapybaraLink>
+      </div>
       <div className="overlay-form__edit">
         <input type="hidden" value={id} />
         {/* Conditional set of form inputs goes here */}
