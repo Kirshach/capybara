@@ -22,8 +22,8 @@ export const getNewTileGridData = (layout: LayoutItem[]) => {
     }
   });
   return {
-    x: Infinity,
-    y: Infinity,
+    x: 1000000,
+    y: 1000000,
     w: 2,
     h: 2,
   };
