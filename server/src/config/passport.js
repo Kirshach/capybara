@@ -22,7 +22,7 @@ passport.use(new LocalStrategy({
   usernameField: 'email'
 },
   function (email, password, done) {
-    console.log(email,'from passport.use(new LocalStrategy', password);
+    console.log(email,'from passport.LocalStrategy', password);
     User.findOne({ email }, function (err, user) {
       if (err) { return done(err); }
       console.log(user, 'user>>>>>');

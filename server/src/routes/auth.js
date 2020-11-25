@@ -26,22 +26,12 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
   res.redirect('/profile');
 });
 
-// locals Strategy
-// router.post('/login',
-//   passport.authenticate('local', {  successRedirect: '/profile', failureRedirect: '/' }),
-//   function (req, res) {
-//     // console.log('from login', req);
-//     res.redirect('/profile');
-//   });
-
-// const authenticate = passport.authenticate('local', { session: true, successRedirect: '/profile', failureRedirect: '/' });
-
 router.post(
   '/login',
   passport.authenticate('local', { failureRedirect: '/profile' }),
   function (req, res) {
-    console.log('from login post');
-    res.json({ success: true });
+    console.log("from login post", req.user);
+    res.json({ name: req.user.name });
   }
 );
 
