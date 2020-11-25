@@ -74,7 +74,12 @@ const EditTileForm: React.FC<EditData> = ({ id, type }) => {
   }, [inputsData.content.url]);
 
   return (
-    <form className="overlay__overlay-form overlay-form" onSubmit={onSubmit} onClick={(evt) => evt.stopPropagation()}>
+    <form
+      autoComplete="off"
+      className="overlay__overlay-form overlay-form"
+      onSubmit={onSubmit}
+      onClick={(evt) => evt.stopPropagation()}
+    >
       <div className="overlay-form__tile-preview">
         <CapybaraLink dimensions={{ width: 2, height: 2, rowHeight: 130 }} styles={inputsData.styles} to={to}>
           {inputsData.content.title}

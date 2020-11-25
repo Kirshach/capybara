@@ -31,7 +31,7 @@ const CapybaraContextMenu: React.FC<CapybaraContextMenuProps> = ({ dispatch, lay
             dispatch(setOverlay({ isActive: true, type: 'settings', data: null }));
           }}
         >
-          Settings
+          Authorise
         </MenuItem>
         <MenuItem
           data={{ foo: 'bar' }}
