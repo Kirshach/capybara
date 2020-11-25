@@ -13,6 +13,8 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
     hostname = new URL(to).hostname;
   } catch {}
 
+  console.log('TILE RENDERED');
+
   return (
     <a
       style={{
@@ -58,4 +60,4 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
   );
 };
 
-export default CapybaraLink;
+export default React.memo(CapybaraLink);

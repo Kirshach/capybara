@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cloneDeep } from 'lodash';
 import GridLayout, { ReactGridLayoutProps, ItemCallback } from 'react-grid-layout';
@@ -52,10 +52,6 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
     element.parentElement!.style.zIndex = '1000';
   };
 
-  const onResize: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
-    dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
-  };
-
   const onResizeStop: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
     dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
     element.parentElement!.style.zIndex = '0';
@@ -79,12 +75,32 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
     isBounded: false,
     useCSSTransforms: true,
     preventCollision: false,
-    onResize,
     onResizeStart,
     onResizeStop,
     onDragStart,
     onDragStop,
   };
+
+  const children = useMemo(() => {
+    return layout.map(({ type, data }) => (
+      <div
+        className="capybara__tile-container"
+        key={data.grid.i}
+        data-grid={data.grid}
+        onContextMenu={(evt) => {
+          evt.stopPropagation();
+          dispatch(setOverlay({ isActive: true, type: 'edit', data: { id: data.grid.i, type } }));
+        }}
+      >
+        <CapybaraTile
+          type={type}
+          content={data.content}
+          styles={data.styles}
+          dimensions={{ rowHeight, width: data.grid.w, height: data.grid.h }}
+        />
+      </div>
+    ));
+  }, [layout]);
 
   return (
     <>
@@ -94,26 +110,7 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
           ref={containerRef}
           style={isOverlayed ? { filter: 'blur(1.1px) brightness(70%)', transition: 'all 0.3s ease' } : undefined}
         >
-          <GridLayout {...gridConfig}>
-            {layout.map(({ type, data }) => (
-              <div
-                className="capybara__tile-container"
-                key={data.grid.i}
-                data-grid={data.grid}
-                onContextMenu={(evt) => {
-                  evt.stopPropagation();
-                  dispatch(setOverlay({ isActive: true, type: 'edit', data: { id: data.grid.i, type } }));
-                }}
-              >
-                <CapybaraTile
-                  type={type}
-                  content={data.content}
-                  styles={data.styles}
-                  dimensions={{ rowHeight, width: data.grid.w, height: data.grid.h }}
-                />
-              </div>
-            ))}
-          </GridLayout>
+          <GridLayout {...gridConfig}>{children}</GridLayout>
         </div>
       </ContextMenuTrigger>
       <CapybaraContextMenu dispatch={dispatch} layout={layout} />
