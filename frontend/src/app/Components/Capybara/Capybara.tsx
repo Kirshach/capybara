@@ -52,6 +52,10 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
     element.parentElement!.style.zIndex = '1000';
   };
 
+  const onResize: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
+    console.log('do smth here');
+  };
+
   const onResizeStop: ItemCallback = (RGLLayoutData, oldItem, newItem, placeholder, evt, element) => {
     dispatchUpdatedLayoutStateOnDragStop(RGLLayoutData);
     element.parentElement!.style.zIndex = '0';
@@ -77,6 +81,7 @@ const Capybara: React.FC<{ isOverlayed: boolean }> = ({ isOverlayed }) => {
     preventCollision: false,
     onResizeStart,
     onResizeStop,
+    onResize,
     onDragStart,
     onDragStop,
   };
