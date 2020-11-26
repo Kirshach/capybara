@@ -2,7 +2,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 2, h: 2, x: 10, y: 3, i: 'yqaNpMKT-85EstMZyeitn', moved: false, static: false },
+      grid: { w: 2, h: 2, x: 8, y: 6, i: 'yqaNpMKT-85EstMZyeitn', moved: false, static: false },
       content: { title: '“What Is ARIA Even For?!” - Webbed Briefs', url: 'https://briefs.video/#pilot' },
       styles: { backgroundColor: '#ffffff', color: '#000000' },
     },
@@ -43,7 +43,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 19, y: 3, i: 'WnYqEB9EMkzpUrM2DmlPQ', moved: false, static: false },
+      grid: { w: 1, h: 1, x: 19, y: 2, i: 'WnYqEB9EMkzpUrM2DmlPQ', moved: false, static: false },
       content: { title: 'Learn Git Branching', url: 'https://learngitbranching.js.org/?locale=ru_RU' },
       styles: { backgroundColor: '#5dbdfd', color: '#ffffff' },
     },
@@ -86,7 +86,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 15, y: 0, i: 'QhGvcZHmWgGBAqUoQEFeo', moved: false, static: false },
+      grid: { w: 2, h: 2, x: 17, y: 1, i: 'QhGvcZHmWgGBAqUoQEFeo', moved: false, static: false },
       content: { title: 'Facebook', url: 'http://facebook.com' },
       styles: { backgroundColor: '#3d5998', color: '#ffffff' },
     },
@@ -94,7 +94,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 15, y: 1, i: 'B1va0exYOYu7IBGENIXFU', moved: false, static: false },
+      grid: { w: 2, h: 2, x: 13, y: 1, i: 'B1va0exYOYu7IBGENIXFU', moved: false, static: false },
       content: { title: 'Twitter', url: 'http://twitter.com' },
       styles: { backgroundColor: '#ffffff', color: '#1fa1f1' },
     },
@@ -102,15 +102,15 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 14, y: 0, i: 'xEYz-902dZtVhqAci_agU', moved: false, static: false },
+      grid: { w: 2, h: 2, x: 15, y: 3, i: 'xEYz-902dZtVhqAci_agU', moved: false, static: false },
       content: { title: 'Youtube', url: 'http://youtube.com' },
-      styles: { backgroundColor: '#ffffff', color: '#fe0300' },
+      styles: { backgroundColor: '#db0000', color: '#ffffff' },
     },
   },
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 14, y: 1, i: 'XE3pA0vcAGlPpAkYjp7bz', moved: false, static: false },
+      grid: { w: 2, h: 2, x: 15, y: 1, i: 'XE3pA0vcAGlPpAkYjp7bz', moved: false, static: false },
       content: { title: 'Вконтакте', url: 'http://vk.com' },
       styles: { backgroundColor: '#2886f5', color: '#ffffff' },
     },
@@ -126,7 +126,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 5, x: 12, y: 0, i: 'Wa8qb3bJnNhKc1ylEbqNc', moved: false, static: false },
+      grid: { w: 1, h: 10, x: 12, y: 0, i: 'Wa8qb3bJnNhKc1ylEbqNc', moved: false, static: false },
       content: { title: 'Kirshach (Kirshanov Dmitrii) - GitHub', url: 'https://github.com/Kirshach' },
       styles: { backgroundColor: '#ffffff', color: '#000000' },
     },
@@ -145,7 +145,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 3, h: 2, x: 7, y: 6, i: 'EvKQNDjRMukQUF253OKzJ', moved: false, static: false },
+      grid: { w: 3, h: 2, x: 5, y: 8, i: 'EvKQNDjRMukQUF253OKzJ', moved: false, static: false },
       content: {
         title: 'CSS { In Real Life} | Learning About CSS 3D Transforms and Perspective',
         url: 'https://css-irl.info/learning-about-css-3d-transforms/',
@@ -164,7 +164,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 3, h: 3, x: 0, y: 4, i: 'kHxbUOoE-intY0Ixze294', moved: false, static: false },
+      grid: { w: 3, h: 3, x: 0, y: 5, i: 'kHxbUOoE-intY0Ixze294', moved: false, static: false },
       content: {
         title: 'Вячеслав Егоров — Производительность JavaScript через подзорную трубу',
         url: 'https://www.youtube.com/watch?v=HPFARivHJRY&list=WL&index=53&t=3s',
@@ -208,7 +208,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 4, h: 2, x: 3, y: 6, i: 'V1ZK4Q-JhdiVOKJLRVmiZ', moved: false, static: false },
+      grid: { w: 3, h: 2, x: 5, y: 6, i: 'V1ZK4Q-JhdiVOKJLRVmiZ', moved: false, static: false },
       content: {
         title: 'THE FONT LOADING CHECKLIST - ZACH LEATHERMAN',
         url: 'https://www.zachleat.com/web/font-checklist/',
@@ -219,7 +219,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 3, h: 2, x: 0, y: 2, i: 'cQlOopqsC65ZnUP-oRuSk', moved: false, static: false },
+      grid: { w: 3, h: 2, x: 0, y: 3, i: 'cQlOopqsC65ZnUP-oRuSk', moved: false, static: false },
       content: {
         title: 'Understanding ECMAScript 6 by Nicholas C. Zakas',
         url: 'https://leanpub.com/understandinges6',
@@ -241,7 +241,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 3, h: 2, x: 5, y: 8, i: 'Fi3DGY_5YYAwIO6acOGBY', moved: false, static: false },
+      grid: { w: 3, h: 2, x: 0, y: 8, i: 'Fi3DGY_5YYAwIO6acOGBY', moved: false, static: false },
       content: {
         title: 'Building a modal module for React with React-Router',
         url: 'https://blog.logrocket.com/building-a-modal-module-for-react-with-react-router/',
@@ -260,7 +260,7 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 19, y: 4, i: 'SvCJN8RbrAIUSltTtJMqM', moved: false, static: false },
+      grid: { w: 1, h: 1, x: 19, y: 6, i: 'SvCJN8RbrAIUSltTtJMqM', moved: false, static: false },
       content: { title: 'Fireship.io courses', url: 'https://fireship.io/courses/' },
       styles: { backgroundColor: '#13191e', color: '#ed6852' },
     },
@@ -268,9 +268,98 @@ export default [
   {
     type: 'link',
     data: {
-      grid: { w: 1, h: 1, x: 19, y: 2, i: 'xbd7u-9aRBHATOPBcDq9g', moved: false, static: false },
-      content: { title: 'Medium - Where good ideas find you', url: 'https://medium.com/' },
+      grid: { w: 2, h: 2, x: 17, y: 3, i: 'xbd7u-9aRBHATOPBcDq9g', moved: false, static: false },
+      content: { title: 'Medium ', url: 'https://medium.com/' },
       styles: { backgroundColor: '#000000', color: '#ffffff' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 2, h: 2, x: 3, y: 6, i: 'XegywE8fPSyPL6U3RKzXn', moved: false, static: false },
+      content: {
+        title: 'Use React.memo() wisely - Dmitri Pavlutin',
+        url: 'https://dmitripavlutin.com/react-useeffect-explanation/',
+      },
+      styles: { backgroundColor: '#33805b', color: '#ffffff' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 3, h: 1, x: 0, y: 2, i: 'MbojYrQ82MwfAAod9GdHU', moved: false, static: false },
+      content: { title: 'ReactJS', url: 'https://ru.reactjs.org/docs/hooks-reference.html#usestate' },
+      styles: { backgroundColor: '#222323', color: '#81c8da' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 2, h: 2, x: 3, y: 8, i: 'eDUy8nDpmYDOSGKHh0zq5', moved: false, static: false },
+      content: {
+        title: 'Moving from Redux to @reduxjs/toolkit',
+        url: 'https://hackernoon.com/moving-from-react-redux-to-reduxjstoolkit-55133u3c',
+      },
+      styles: { backgroundColor: '#12fe04', color: '#000000' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 1, h: 1, x: 19, y: 7, i: 'akUxWotNHFIxYKC6jMqyK', moved: false, static: false },
+      content: { title: 'React Router', url: 'https://reactrouter.com/web/guides/quick-start' },
+      styles: { backgroundColor: '#ffffff', color: '#000000' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 2, h: 2, x: 10, y: 3, i: 'MztbVkoY4KE9yTBjn7yXs', moved: false, static: false },
+      content: {
+        title: 'TypeScript Handbook v2.0 beta',
+        url: 'https://www.typescriptlang.org/docs/handbook/2/basic-types.html',
+      },
+      styles: { backgroundColor: '#3277c5', color: '#ffffff' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 1, h: 1, x: 19, y: 4, i: 'KLZNd1sQGDOuR0yEj1hXi', moved: false, static: false },
+      content: { title: 'Redux Toolkit JS', url: 'https://redux-toolkit.js.org/tutorials/intermediate-tutorial' },
+      styles: { backgroundColor: '#ffffff', color: '#7c55ba' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 1, h: 1, x: 19, y: 3, i: '32tLY0F4W-toUOzU7Gp2c', moved: false, static: false },
+      content: { title: 'Mongo DB', url: 'https://www.mongodb.com/' },
+      styles: { backgroundColor: '#ffffff', color: '#489a37' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 6, h: 1, x: 13, y: 0, i: 'lkU4RDgbRmoA8hvZT3qOi', moved: false, static: false },
+      content: { title: 'Capybara Merged - GitHub', url: 'https://github.com/Kirshach/capybaraMerged' },
+      styles: { backgroundColor: '#ffffff', color: '#000000' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 1, h: 1, x: 19, y: 8, i: '3O7m-lwEEv1FkG5Fs0uui', moved: false, static: false },
+      content: { title: 'DEV Community', url: 'http://dev.to' },
+      styles: { backgroundColor: '#000000', color: '#ffffff' },
+    },
+  },
+  {
+    type: 'link',
+    data: {
+      grid: { w: 1, h: 1, x: 19, y: 9, i: 'hr5p5fpiGiN-n-_3XjrYV', moved: false, static: false },
+      content: { title: 'Codepen.io', url: 'https://codepen.io/carolineartz/full/ogVXZj/' },
+      styles: { backgroundColor: '#ffffff', color: '#000000' },
     },
   },
 ];
