@@ -40,8 +40,10 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
         }
         alt="favicon"
         style={{
-          width: width === 1 ? '100%' : '',
+          width: width === 1 && height === 1 ? '100%' : width === 1 ? '90%' : '',
           margin: width === 1 && height === 1 ? '0' : height === 1 ? '0 0.7em 0 0' : '',
+          marginLeft: height === 1 && width !== 1 ? '0.6em' : '0',
+          marginTop: width === 1 && height !== 1 ? '0.6em' : '0',
         }}
       />
       <div
@@ -51,6 +53,8 @@ const CapybaraLink: React.FC<CapybaraLinkProps> = ({
           alignSelf: height === 1 || width === 1 ? 'center' : 'flex-end',
           writingMode: width === 1 ? 'vertical-rl' : 'initial',
           transform: width === 1 ? 'rotate(180deg)' : '',
+          marginBottom: width === 1 ? '0.7em' : '',
+          marginRight: height === 1 ? '0.7em' : '',
           whiteSpace: width === 1 || height === 1 ? 'nowrap' : 'initial',
         }}
       >
