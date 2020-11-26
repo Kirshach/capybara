@@ -5,6 +5,7 @@ import { authorise } from './app/store/states/domainData/slices/auth/auth';
 import Capybara from './app/Components/Capybara/Capybara';
 import Overlay from './app/Components/Overlay/Overlay';
 import { Overlay as OverlayState } from './app/store/states/ui/slices/overlay/types';
+import { setLayout } from './app/store/states/appState/slices/layout/layout';
 import './App.scss';
 
 const App: React.FC = () => {
@@ -15,7 +16,7 @@ const App: React.FC = () => {
       const res = await fetch('http://localhost:3001/api/current_user');
       const data = await res.json();
       dispatch(authorise(data.name));
-      console.log(data);
+      dispatch(setLayout(data.layout));
     })();
   }, []);
 

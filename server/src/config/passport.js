@@ -9,10 +9,10 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser((id, done) => {
-  console.log(id, 'from passport 12');
+  // console.log(id, 'from passport 12');
 
   User.findById(id).then((user) => {
-    console.log(user, 'from passport 15');
+    // console.log(user, 'from passport 15');
     done(null, user);
     return null;
   })
@@ -22,10 +22,10 @@ passport.use(new LocalStrategy({
   usernameField: 'email'
 },
   function (email, password, done) {
-    console.log(email,'from passport.LocalStrategy', password);
+    // console.log(email,'from passport.LocalStrategy', password);
     User.findOne({ email }, function (err, user) {
       if (err) { return done(err); }
-      console.log(user, 'user>>>>>');
+      // console.log(user, 'user>>>>>');
       if (!user) { return done(null, false);}
       if (user.password && user.password !== password ) { return done(null, false); }
       return done(null, user);
@@ -52,7 +52,7 @@ passport.use(
           googleId: profile.id,
           name: profile.displayName,
         }).save().then((newUser) => {
-          console.log('created new user: ', newUser)
+          // console.log('created new user: ', newUser)
           done(null, newUser)
         })
       }

@@ -9,9 +9,7 @@ const passport = require('passport');
 const session = require('express-session');
 const dbConect = require('./src/config/db.js');
 var cookieParser = require('cookie-parser');
-// const bodyParser = require("body-parser");
-// const FileStore = require('session-file-store')(session);
-// const OPTIONS = require('./src/config/index.js');
+
 require('./src/config/passport');
 const path = require('path');
 
@@ -19,10 +17,6 @@ const MongoStore = connectMongo(session);
 
 dbConect();
 
-// const sessionParser = session({
-//   ...OPTIONS.sessionConfig.sessionOptions,
-//   store: new FileStore(OPTIONS.sessionConfig.fileStoreOptions),
-// })
 const app = express();
 app.use(cookieParser());
 
@@ -51,7 +45,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.set('view engine', 'hbs');
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(passport.initialize());
 app.use(passport.session());

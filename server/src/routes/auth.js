@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/logout', (req, res) => {
   req.logout();
   req.session.destroy();
-  console.log('logout');
+  // console.log('logout');
   res.redirect('/profile');
 });
 
@@ -22,7 +22,7 @@ router.get(
 // callback route for google to redirect to
 // hand control to passport to use code to grab profile info
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  console.log('from /google/redirect');
+  // console.log('from /google/redirect');
   res.redirect('/profile');
 });
 
@@ -30,7 +30,7 @@ router.post(
   '/login',
   passport.authenticate('local', { failureRedirect: '/profile' }),
   function (req, res) {
-    console.log("from login post", req.user);
+    // console.log("from login post", req.user);
     res.json({ name: req.user.name });
   }
 );
@@ -40,7 +40,7 @@ router.post('/registration', async (req, res) => {
   // console.log(name, password, email);
   try {
     const user = new User({ name, password, email });
-    console.log(user);
+    // console.log(user);
     await user.save();
   } catch (error) {
     console.error(error);

@@ -12,6 +12,14 @@ if (window.localStorage) {
     if (newLayout !== lastLayout) {
       lastLayout = newLayout;
       window.localStorage.setItem('layout', JSON.stringify(newLayout));
+
+      fetch(`http://localhost:3001/api/write`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ layout: newLayout }),
+      }).then((res) => console.log(res.status));
     }
   });
 }

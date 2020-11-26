@@ -4,7 +4,7 @@ import { getLayoutFromLocalStorage, findLayoutItemById } from './helpers';
 import { EditTileInputsData } from '../../../../../Components/Overlay/OverlayContent/EditTileForm/types';
 import mock from '../../../../../../layout-mock';
 
-const initialState: LayoutItem[] = getLayoutFromLocalStorage() || mock;
+const initialState: LayoutItem[] = getLayoutFromLocalStorage() || [];
 
 export const LayoutStateSlice = createSlice({
   name: 'layout',

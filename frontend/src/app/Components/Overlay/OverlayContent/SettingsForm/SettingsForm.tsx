@@ -53,7 +53,7 @@ const SettingsForm: React.FC = () => {
         ''
       )}
 
-      {login ? <Login /> : ''}
+      {login ? <Login setLogin={setLogin} /> : ''}
       {registration ? <Registration /> : ''}
     </>
   );

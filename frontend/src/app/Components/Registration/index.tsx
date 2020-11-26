@@ -1,10 +1,13 @@
 import './style.scss';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { unsetOverlay } from '../../store/states/ui/slices/overlay/overlay';
 
 const Registration: React.FC = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
 
   function userName(event: React.ChangeEvent<HTMLInputElement>) {
     setName(event.target.value);
@@ -35,6 +38,7 @@ const Registration: React.FC = () => {
     });
     if (res.status === 200) {
       console.log(res.status, 'From http://localhost:3001/auth/registration');
+      dispatch(unsetOverlay());
     }
 
     clearInputs();
