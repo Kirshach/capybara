@@ -14,15 +14,15 @@
     "cookies"
   ],
   "icons": {
-    "16": "icon2.png",
-    "32": "icon2.png",
-    "64": "icon2.png",
-    "128": "icon2.png"
+    "16": "icon6.png",
+    "32": "icon6.png",
+    "64": "icon6.png",
+    "128": "icon6.png"
   },
   "browser_action": {
     "default_icon": {
-      "16": "icon2.png",
-      "32": "icon2.png"
+      "16": "icon6.png",
+      "32": "icon6.png"
     },
     "default_title": "Capybara popup",
     "default_popup": "popup.html"
