@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Login from '../../../Login';
 import { useSelector } from 'react-redux';
-import Registration from '../../../Registration/index.tsx';
+import Registration from '../../../Registration/index';
 import { State } from '../../../../store/states/types';
 import './SettingsForm.scss';
 
