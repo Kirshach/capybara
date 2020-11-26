@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authorise } from '../../store/states/domainData/slices/auth/auth';
 import { unsetOverlay } from '../../store/states/ui/slices/overlay/overlay';
-
+import { setLayout } from '../../store/states/appState/slices/layout/layout';
 const Login: React.FC<{ setLogin: (param: boolean) => any }> = ({ setLogin }) => {
   const dispatch = useDispatch();
 
@@ -24,6 +24,8 @@ const Login: React.FC<{ setLogin: (param: boolean) => any }> = ({ setLogin }) =>
         .then((data) => {
           dispatch(authorise(data.name));
           dispatch(unsetOverlay());
+          dispatch(setLayout(data.layout));
+          console.log(data.layout);
         })
         .catch((err) => console.log(err, '<<>>'));
       setLogin(false);

@@ -15,7 +15,10 @@ router.get("/current_user", (req, res) => {
 });
 
 router.post("/write", async (req, res) => {
-  const id = req.user._id;
+  let id;
+  if (req.user) {
+    id = req.user._id;
+  }
   const { layout } = req.body;
   console.log(id);
   const newUser = await User.updateOne(
@@ -24,6 +27,7 @@ router.post("/write", async (req, res) => {
       layout,
     }
   );
+  console.log(newUser);
 
   return res.status(200).end();
 });
