@@ -13,6 +13,25 @@ import CapybaraLink from '../../../Capybara/CapybaraTile/CapybaraLink/CapybaraLi
 import './EditTileForm.scss';
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+const addBmark = (data: any, tileDataState: any) => {
+  const oldTitle = tileDataState.data.content.title;
+  const oldUrl = tileDataState.data.content.url;
+  const newTitle = data.content.title;
+  const newUrl = data.content.url;
+  chrome.bookmarks.search({ title: oldTitle, url: oldUrl }, function (result) {
+    if (!result.length) {
+      chrome.bookmarks.create({
+        title: newTitle,
+        url: newUrl,
+      });
+    } else {
+      const id = result[0].id;
+      chrome.bookmarks.update(id, { title: newTitle, url: newUrl }, function (result) {
+        return result;
+      });
+    }
+  });
+};
 
 const EditTileForm: React.FC<EditData> = ({ id, type }) => {
   const dispatch = useDispatch();
@@ -60,6 +79,8 @@ const EditTileForm: React.FC<EditData> = ({ id, type }) => {
     evt.preventDefault();
     dispatch(setLayoutItemData(inputsData));
     dispatch(unsetOverlay());
+
+    addBmark(inputsData, tileDataState);
   };
 
   const [to, setTo] = useState(inputsData.content.url);
