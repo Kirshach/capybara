@@ -5,6 +5,7 @@ import { cloneDeep } from 'lodash';
 import { State } from '../../../../store/states/types';
 import { EditData } from '../../../../store/states/ui/slices/overlay/types';
 import { getTileFormLayout } from './helpers';
+import { LayoutItem } from '../../../../store/states/appState/slices/layout/types';
 import { EditTileInputsData, EditStyleInputName, EditContentInputName } from './types';
 import { setLayoutItemData, deleteLayoutItemById } from '../../../../store/states/appState/slices/layout/layout';
 import { unsetOverlay } from '../../../../store/states/ui/slices/overlay/overlay';

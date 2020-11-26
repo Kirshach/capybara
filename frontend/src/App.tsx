@@ -12,12 +12,16 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      const res = await fetch('http://localhost:3001/api/current_user');
-      const data = await res.json();
-      dispatch(authorise(data.name));
-      dispatch(setLayout(data.layout));
-    })();
+    // (async () => {
+    fetch('http://localhost:3001/api/current_user')
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(authorise(data.name));
+        dispatch(setLayout(data.layout));
+      })
+      .catch(() => {
+        console.log("failed to fetch current user. it's okay! he may not exist!");
+      });
   }, []);
 
   const { type, data, isActive }: OverlayState = useSelector((state: State) => state.ui.overlay);
