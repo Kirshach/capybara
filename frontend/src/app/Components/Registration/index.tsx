@@ -1,10 +1,7 @@
 import './style.scss';
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import {ragistration} from '../../redux/actionCreators/user';
 
 const Registration: React.FC = () => {
-  // const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -53,6 +50,7 @@ const Registration: React.FC = () => {
           type="text"
           aria-describedby="emailHelp"
           value={name}
+          name="name"
         />
       </div>
       <div className="overlay-form__group2">
@@ -63,6 +61,7 @@ const Registration: React.FC = () => {
           type="email"
           aria-describedby="emailHelp"
           value={email}
+          name="email"
         />
       </div>
       <div className="overlay-form__group2">

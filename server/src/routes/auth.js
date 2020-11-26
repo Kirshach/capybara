@@ -37,9 +37,10 @@ router.post(
 
 router.post('/registration', async (req, res) => {
   const { name, password, email } = req.body;
-  console.log(name, password, email);
+  // console.log(name, password, email);
   try {
-    const user = await new User({ name, password, email });
+    const user = new User({ name, password, email });
+    console.log(user);
     await user.save();
   } catch (error) {
     console.error(error);
