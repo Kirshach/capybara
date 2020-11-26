@@ -10,7 +10,6 @@ import { setLayoutItemData, deleteLayoutItemById } from '../../../../store/state
 import { unsetOverlay } from '../../../../store/states/ui/slices/overlay/overlay';
 import CapybaraLink from '../../../Capybara/CapybaraTile/CapybaraLink/CapybaraLink';
 import './EditTileForm.scss';
-import { setTimeout } from 'timers';
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
