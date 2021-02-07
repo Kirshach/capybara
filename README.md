@@ -12,4 +12,4 @@ The app currently supports basic browser integration such as:
 - the ability to import bookmarks from the browser
 - synchronization between app tiles content and browser bookmarks
 
-# The project is abonded due to design mistakes in favour of [Glacier](https://github.com/Kirshach/Glacier) 
+### The project is abonded due to design mistakes in favour of [Glacier](https://github.com/Kirshach/Glacier) 
