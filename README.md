@@ -6,7 +6,7 @@
 
 ~~Highly customizable, with touch-platform-like friendly interface and supposedly supporting multiple-level folders (not quite there yet), it is what I lack in browsers' new tab pages.~~
 
-![Capybara demo](https://youtu.be/0RdaOPMI_BA)
+~~[Capybara demo](https://youtu.be/0RdaOPMI_BA)~~
 
 ~~The app currently supports basic browser integration such as:~~
 ~~- the ability to import bookmarks from the browser~~
