@@ -13,3 +13,5 @@
 ~~- synchronization between app tiles content and browser bookmarks~~
 
 ### The project is abandonded for the better days in favour of [Glacier](https://github.com/Kirshach/Glacier) 
+
+If you're reading the code in order to evaluate my skills, please, consider it to be outdated! >:P
