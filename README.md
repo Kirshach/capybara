@@ -1,4 +1,4 @@
- ~~About~~
+### ~~About~~
 
 ~~This one started as a result of my personal dissatisfaction with existing browser bookmark organizers extensions.~~
 
